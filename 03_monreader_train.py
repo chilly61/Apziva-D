@@ -10,7 +10,7 @@ from pathlib import Path
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score, classification_report
 
-OUTPUT_PATH = Path("yourpath/outputs")
+OUTPUT_PATH = Path("C:\\Users\\75346\\Desktop\\Apziva Project D\\outputs")
 
 print("=" * 70)
 print("🧠 03_模型训练 (HOG特征)")
