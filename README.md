@@ -272,3 +272,15 @@ Thanks to the Apziva team for their support and guidance.
 This project is for internal use only.
 
 ---
+
+## References
+
+1. Dalal, N., & Triggs, B. (2005). Histograms of Oriented Gradients for Human Detection. *CVPR*.
+
+2. He, K., et al. (2016). Deep Residual Learning for Image Recognition. *CVPR*.
+
+3. Hochreiter, S., & Schmidhuber, J. (1997). Long Short-Term Memory. *Neural Computation*.
+
+4. Breiman, L. (2001). Random Forests. *Machine Learning*.
+
+5. Chollet, F. (2017). Deep Learning with Python. Manning Publications.
