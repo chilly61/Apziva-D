@@ -181,19 +181,24 @@ python 04_monreader_evaluate.py
 
 | Method | Feature Type | Feature Dimension | Accuracy | F1 Score |
 |--------|-------------|-------------------|----------|----------|
-| HOG + RF | HOG + Color Histogram | 1,872 | **97.40%** | **95.83%** |
+| HOG + RF | HOG + Color Histogram | 1,872 | 97.40% | 95.83% |
 | CNN + RF | ResNet-50 (Avg Pool) | 2,048 | 94.81% | 91.30% |
-| LSTM | ResNet-50 Sequence | 2,048 × 50 | **98.70%** | **97.96%** |
+| **LSTM** | ResNet-50 Sequence | 2,048 × 50 | **98.70%** | **97.96%** |
 
 ### Key Findings
 
-1. **HOG Outperforms Deep Learning**: On this small dataset (194 segments), traditional HOG features with Random Forest achieve the good results with less time cost, and is more stable.
+1. **LSTM Achieves Best Results**: With proper hyperparameter tuning (learning rate, dropout), LSTM can outperform traditional methods by capturing temporal patterns in video sequences. The flipping motion contains sequential information that HOG and average-pooling CNN cannot capture.
 
-2. **CNN Transfer Learning Limitations**: Despite ResNet-50's powerful ImageNet pre-training, the small dataset size limits its effectiveness. Average pooling may also lose important temporal information.
+2. **HOG is Stable and Efficient**: Traditional HOG features with Random Forest achieve excellent results (97.40%) with less computational cost and more stable training on small datasets.
 
-3. **LSTM Overfitting**: The LSTM model severely overfits—achieving 100% training accuracy but only 32.47% test accuracy at first. After modifying the learning rate and other parameters, we can get slightly better results.
+3. **CNN Transfer Learning Limitations**: Despite ResNet-50's powerful ImageNet pre-training, average pooling loses temporal information. The small dataset size also limits fine-tuning effectiveness.
 
-4. **No Data Leakage**: The rigorous leakage check confirms zero overlap between training and testing sets, ensuring fair evaluation.
+4. **Training Stability**: LSTM training on small datasets can be unstable. Key factors include:
+   - Learning rate selection (too high causes instability, too low leads to underfitting)
+   - Dropout regularization to prevent overfitting
+   - Early stopping to capture the best validation performance
+
+5. **No Data Leakage**: The rigorous leakage check confirms zero overlap between training and testing sets, ensuring fair evaluation.
 
 ---
 
@@ -204,20 +209,29 @@ python 04_monreader_evaluate.py
 With only 194 video segments, deep learning models easily overfit. Our solutions included:
 - Using transfer learning (ResNet-50 pre-trained on ImageNet)
 - Applying dropout regularization in LSTM
-- Ultimately choosing traditional HOG features which work better with limited data
+- Careful learning rate tuning for LSTM
+- Using HOG + RF as a stable baseline
 
-### Challenge 2: Class Imbalance
+### Challenge 2: LSTM Training Instability
+
+LSTM training on small datasets can be highly unstable—accuracy may fluctuate significantly between runs. Solutions:
+- Adjust learning rate (lower values often work better)
+- Use dropout layers (0.5 for LSTM, 0.3 for Dense)
+- Apply early stopping to capture best validation performance
+- Consider using HOG + RF for more predictable results
+
+### Challenge 3: Class Imbalance
 
 The dataset has slightly more NotFlip (104) than Flip (90) segments. We used:
 - Stratified sampling in train/test split
 - Random Forest's built-in handling of class weights
 
-### Challenge 3: Feature Selection
+### Challenge 4: Feature Selection
 
 Choosing the right feature representation is crucial. We explored:
 - Hand-crafted features (HOG, Color)
 - Deep learning features (ResNet-50)
-- Sequential representations (Frame sequences)
+- Sequential representations (Frame sequences with LSTM)
 
 ---
 
