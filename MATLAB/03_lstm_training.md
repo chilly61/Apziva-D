@@ -1,4 +1,4 @@
-# 03 LSTM训练过程可视化
+# 03 LSTM Training Process
 
 ```matlab
 % MonReader - 03 LSTM训练过程可视化
