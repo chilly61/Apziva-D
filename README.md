@@ -183,15 +183,15 @@ python 04_monreader_evaluate.py
 |--------|-------------|-------------------|----------|----------|
 | HOG + RF | HOG + Color Histogram | 1,872 | **97.40%** | **95.83%** |
 | CNN + RF | ResNet-50 (Avg Pool) | 2,048 | 94.81% | 91.30% |
-| LSTM | ResNet-50 Sequence | 2,048 × 50 | 32.47% | 49.02% |
+| LSTM | ResNet-50 Sequence | 2,048 × 50 | **98.70%** | **97.96%** |
 
 ### Key Findings
 
-1. **HOG Outperforms Deep Learning**: On this small dataset (194 segments), traditional HOG features with Random Forest achieve the best results (98.70% accuracy).
+1. **HOG Outperforms Deep Learning**: On this small dataset (194 segments), traditional HOG features with Random Forest achieve the good results with less time cost, and is more stable.
 
 2. **CNN Transfer Learning Limitations**: Despite ResNet-50's powerful ImageNet pre-training, the small dataset size limits its effectiveness. Average pooling may also lose important temporal information.
 
-3. **LSTM Overfitting**: The LSTM model severely overfits—achieving 100% training accuracy but only 32.47% test accuracy. This confirms that deep learning approaches require more data to generalize.
+3. **LSTM Overfitting**: The LSTM model severely overfits—achieving 100% training accuracy but only 32.47% test accuracy at first. After modifying the learning rate and other parameters, we can get slightly better results.
 
 4. **No Data Leakage**: The rigorous leakage check confirms zero overlap between training and testing sets, ensuring fair evaluation.
 
