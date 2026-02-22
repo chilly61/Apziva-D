@@ -181,7 +181,7 @@ python 04_monreader_evaluate.py
 
 | Method | Feature Type | Feature Dimension | Accuracy | F1 Score |
 |--------|-------------|-------------------|----------|----------|
-| HOG + RF | HOG + Color Histogram | 1,872 | **98.70%** | **97.96%** |
+| HOG + RF | HOG + Color Histogram | 1,872 | **97.40%** | **95.83%** |
 | CNN + RF | ResNet-50 (Avg Pool) | 2,048 | 94.81% | 91.30% |
 | LSTM | ResNet-50 Sequence | 2,048 × 50 | 32.47% | 49.02% |
 
