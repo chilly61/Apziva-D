@@ -15,8 +15,8 @@ from PIL import Image
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # ============ 配置 ============
-DATA_PATH = Path("/mnt/c/Users/75346/Desktop/Apziva Project D/images")
-OUTPUT_PATH = Path("/mnt/c/Users/75346/Desktop/Apziva Project D/outputs")
+DATA_PATH = Path("yourpath/images")
+OUTPUT_PATH = Path("yourpath/outputs")
 OUTPUT_PATH.mkdir(exist_ok=True)
 
 print("=" * 70)
@@ -26,8 +26,8 @@ print("=" * 70)
 # 加载ResNet-50
 print("\n📥 加载ResNet-50模型...")
 from tensorflow import keras
-from tensorflow.keras.applications import ResNet50
-from tensorflow.keras.applications.resnet50 import preprocess_input
+from keras.applications import ResNet50
+from keras.applications.resnet50 import preprocess_input
 
 base_model = ResNet50(weights='imagenet', include_top=False, pooling='avg')
 feature_extractor = keras.Model(inputs=base_model.input, outputs=base_model.output)
