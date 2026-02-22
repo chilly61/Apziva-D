@@ -1,6 +1,6 @@
+EDA Visualization
 
-matlab
-'''
+```matlab
 %% 数据准备
 % 从EDA结果中获取
 training_flip_segs = 65;
@@ -87,7 +87,7 @@ labels_class = {'Flip', 'NotFlip'};
 class_sizes = [flip_total, notflip_total];
 pie(class_sizes, labels_class);
 title('Class Distribution (All Data)', 'FontSize', 14, 'FontWeight', 'bold');
-'''
+
 
 percentages_class = class_sizes / sum(class_sizes) * 100;
 legend_labels_class = cellfun(@(x,y,z) sprintf('%s: %d (%.1f%%)', x,y,z), labels_class, num2cell(class_sizes), num2cell(percentages_class), 'UniformOutput', false);
@@ -96,3 +96,4 @@ saveas(gcf, 'C:\\Users\\75346\\Desktop\\Apziva Project D\\outputs\\fig04_class_d
 fprintf('图4已保存: fig04_class_distribution.png\n');
 
 fprintf('\n✅ 所有可视化完成！\n');
+```
