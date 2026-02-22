@@ -10,7 +10,7 @@ import os
 from pathlib import Path
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-OUTPUT_PATH = Path("/mnt/c/Users/75346/Desktop/Apziva Project D/outputs")
+OUTPUT_PATH = Path("yourpath/outputs")
 
 print("=" * 70)
 print("🧠 03c_LSTM模型训练")
