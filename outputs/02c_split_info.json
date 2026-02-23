@@ -1,0 +1,7 @@
+{
+  "feature_extractor": "ResNet-50 (ImageNet\u9884\u8bad\u7ec3)",
+  "feature_dim": 2048,
+  "sequence_length": 50,
+  "padding": "zero-padding",
+  "split_method": "\u4f7f\u7528\u539f\u59cbtraining/testing\u5212\u5206"
+}

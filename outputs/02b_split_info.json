@@ -1,0 +1,16 @@
+{
+  "feature_extractor": "ResNet-50 (ImageNet\u9884\u8bad\u7ec3)",
+  "feature_dim": 2048,
+  "pooling": "\u5e73\u5747\u6c60\u5316 (mean pooling)",
+  "split_method": "\u4f7f\u7528\u539f\u59cbtraining/testing\u5212\u5206",
+  "training": {
+    "flip_segments": 65,
+    "notflip_segments": 52,
+    "total_segments": 117
+  },
+  "testing": {
+    "flip_segments": 25,
+    "notflip_segments": 52,
+    "total_segments": 77
+  }
+}

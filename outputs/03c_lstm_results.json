@@ -1,0 +1,12 @@
+{
+  "feature_type": "ResNet-50 CNN\u7279\u5f81 + LSTM\u65f6\u5e8f",
+  "feature_dim": 2048,
+  "sequence_length": 50,
+  "model": "LSTM",
+  "lstm_units": 128,
+  "accuracy": 0.987012987012987,
+  "f1_score": 0.9795918367346939,
+  "epochs_trained": 21,
+  "final_train_acc": 1.0,
+  "final_val_acc": 0.7083333134651184
+}

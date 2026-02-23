@@ -1,0 +1,7 @@
+{
+  "feature_type": "HOG + \u989c\u8272\u76f4\u65b9\u56fe",
+  "feature_dim": 1872,
+  "model": "RandomForest",
+  "accuracy": 0.974025974025974,
+  "f1_score": 0.9583333333333334
+}

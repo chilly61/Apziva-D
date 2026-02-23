@@ -1,0 +1,15 @@
+{
+  "feature_extractor": "HOG + \u989c\u8272\u76f4\u65b9\u56fe",
+  "feature_dim": 1872,
+  "split_method": "\u4f7f\u7528\u539f\u59cbtraining/testing\u5212\u5206",
+  "training": {
+    "flip_segments": 65,
+    "notflip_segments": 52,
+    "total_segments": 117
+  },
+  "testing": {
+    "flip_segments": 25,
+    "notflip_segments": 52,
+    "total_segments": 77
+  }
+}
