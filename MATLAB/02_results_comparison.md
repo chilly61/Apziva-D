@@ -7,8 +7,8 @@
 %% 结果数据
 % 从训练结果JSON中提取
 methods = {'HOG + RF', 'CNN + RF', 'LSTM'};
-accuracy = [0.9870, 0.9481, 0.3247];    % Accuracy values
-f1_score = [0.9796, 0.9130, 0.4902];     % F1 Score values
+accuracy = [0.9740, 0.9481, 0.9870];    % Accuracy values
+f1_score = [0.9583, 0.9130, 0.9796];     % F1 Score values
 
 %% 图1: 准确率对比 (Accuracy Comparison)
 figure('Position', [100, 100, 600, 400]);
@@ -140,13 +140,3 @@ fprintf('图5已保存: fig09_feature_dimension.png\n');
 
 fprintf('\n✅ 结果对比可视化完成！\n');
 ```
-
----
-**说明：**
-- 图1: 准确率柱状图对比
-- 图2: F1分数柱状图对比
-- 图3: 准确率与F1分数并排对比
-- 图4: 雷达图综合性能对比（包含自定义的Simplicity和Speed评分）
-- 图5: 特征维度对比
-
-**注意：** 雷达图中的"Simplicity"和"Speed"是主观评分，用于综合展示各方法的特性。
