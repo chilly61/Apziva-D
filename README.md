@@ -133,6 +133,7 @@ Apziva-Project-D/
 │       ├── flip/            # Testing Flip segments
 │       └── notflip/         # Testing NotFlip segments
 ├── outputs/                  # Generated features and models
+│   └── Visualization/        # Visualization of the EDA, LSTM Curve and Result Comparison
 ├── matlab/                   # MATLAB visualization scripts
 ├── 01_monreader_eda.py       # Exploratory Data Analysis
 ├── 02_monreader_preprocess.py  # HOG feature extraction
@@ -141,7 +142,6 @@ Apziva-Project-D/
 ├── 03_monreader_train.py     # HOG + RF training
 ├── 03b_cnn_train.py          # CNN + RF training
 ├── 03c_lstm_train.py         # LSTM training
-├── 04_monreader_evaluate.py  # Results evaluation
 └── README.md                 # This file
 ```
 
@@ -154,23 +154,20 @@ python 01_monreader_eda.py
 # Step 2a: HOG Feature Extraction
 python 02_monreader_preprocess.py
 
-# Step 2b: CNN Feature Extraction (Average Pooling)
-python 02b_cnn_preprocess.py
-
-# Step 2c: Sequential Feature Extraction (for LSTM)
-python 02c_sequential_preprocess.py
-
 # Step 3a: Train HOG + Random Forest
 python 03_monreader_train.py
+
+# Step 2b: CNN Feature Extraction (Average Pooling)
+python 02b_cnn_preprocess.py
 
 # Step 3b: Train CNN + Random Forest
 python 03b_cnn_train.py
 
+# Step 2c: Sequential Feature Extraction (for LSTM)
+python 02c_sequential_preprocess.py
+
 # Step 3c: Train LSTM
 python 03c_lstm_train.py
-
-# Step 4: Evaluate and Summarize
-python 04_monreader_evaluate.py
 ```
 
 ---
