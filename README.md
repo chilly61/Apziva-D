@@ -259,20 +259,6 @@ Choosing the right feature representation is crucial. We explored:
 
 ---
 
-## Results Visualization
-
-MATLAB visualization scripts are provided in the `matlab/` folder:
-
-| Script | Generates |
-|--------|-----------|
-| 01_data_distribution.md | Data distribution charts (4 figures) |
-| 02_results_comparison.md | Model comparison charts (5 figures) |
-| 03_lstm_training.md | LSTM training curves (4 figures) |
-| 04_summary.md | Project summary dashboard (3 figures) |
-
-Run the MATLAB scripts to generate professional visualizations for presentations and reports.
-
----
 
 ## Contributors
 
