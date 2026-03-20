@@ -316,10 +316,9 @@ Extract text from scanned book pages to assist blind users with reading. Compare
 ```
 Apziva-Project-D/
 ├── Part 2: Book OCR/
-│   ├── images/                   # Book page images (156 files)
-│   │   └── india_news_p0000XX.jpg
-│   ├── labels/                   # Ground truth text files
-│   │   └── india_news_p0000XX.jpg.txt
+│   ├── book_ocr_images/                   # Book page images (156 files) and ground truth
+│   │   └── book_XX.jpg
+│   │   └── Metadata.json
 │   ├── easyocr_results/          # EasyOCR output
 │   ├── paddleocr_results/        # PaddleOCR output
 │   ├── 04a_easyocr_test.py       # EasyOCR evaluation
