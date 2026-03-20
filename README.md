@@ -1,6 +1,13 @@
-# MonReader: Video Segment Classification
+# Apziva Project D: Computer Vision & OCR
 
 ## Project Overview
+
+This project explores two major computer vision tasks:
+
+1. **MonReader**: Video segment classification (flip/not-flip detection)
+2. **Book OCR**: Text extraction from scanned book pages for blind reading assistance
+
+## Part 1: MonReader - Video Flip Detection
 
 MonReader is an intelligent video segment classification system designed to automatically identify whether a video segment contains "flipping" content or not. This binary classification task is crucial for content moderation and video analysis in various applications.
 
@@ -12,20 +19,20 @@ Due to license, I can not upload the full size of the training/testing files. In
 
 ---
 
-## Core Features
+### Core Features
 
-### 1. Multi-Approach Classification
+#### 1. Multi-Approach Classification
 
 The system implements three different approaches to solve the binary classification problem:
 - **HOG + Random Forest**: Traditional computer vision with hand-crafted features
 - **CNN (ResNet-50) + Random Forest**: Transfer learning with pre-trained deep features
 - **LSTM Sequential Model**: Temporal sequence modeling for frame-level analysis
 
-### 2. Data Leakage Prevention
+#### 2. Data Leakage Prevention
 
 The system includes rigorous data leakage detection to ensure training and testing sets use completely different images. By checking file names between splits, we guarantee that the model learns to generalize rather than memorize specific samples.
 
-### 3. Flexible Feature Extraction
+#### 3. Flexible Feature Extraction
 
 Multiple feature extraction methods are supported:
 - HOG features capturing edge and gradient information
@@ -35,9 +42,9 @@ Multiple feature extraction methods are supported:
 
 ---
 
-## Technical Architecture
+### Technical Architecture
 
-### Dataset Summary
+#### Dataset Summary
 
 | Metric | Value |
 |--------|-------|
@@ -48,13 +55,13 @@ Multiple feature extraction methods are supported:
 | Flip Segments | 90 |
 | NotFlip Segments | 104 |
 
-### Data Split
+#### Data Split
 
 The original dataset is split into training and testing sets:
 - **Training Set**: 65 Flip + 52 NotFlip segments (1,162 + 1,230 images)
 - **Testing Set**: 25 Flip + 52 NotFlip segments (105 + 307 images)
 
-### Generation 1: HOG Feature Extraction
+#### Generation 1: HOG Feature Extraction
 
 HOG (Histogram of Oriented Gradients) is a classic computer vision feature descriptor that captures edge and gradient structure in images. The algorithm divides an image into small cells, computes a histogram of gradient directions within each cell, and optionally normalizes across blocks.
 
@@ -68,7 +75,7 @@ These hand-crafted features are then fed into a Random Forest classifier for bin
 - Feature Dimension: 1,872
 - Model: Random Forest (200 trees, max depth 20)
 
-### Generation 2: CNN Transfer Learning
+#### Generation 2: CNN Transfer Learning
 
 Instead of designing features manually, we leverage transfer learning using ResNet-50, a deep convolutional neural network pre-trained on ImageNet (1.4 million images, 1,000 categories).
 
@@ -83,7 +90,7 @@ For each segment, we apply **average pooling** across all frames to get a single
 - Pre-trained Model: ResNet-50 (ImageNet weights)
 - Classifier: Random Forest
 
-### Generation 3: LSTM Sequential Modeling
+#### Generation 3: LSTM Sequential Modeling
 
 For video understanding, temporal information matters. We preserve the frame-level sequence and use LSTM (Long Short-Term Memory) to model the temporal dynamics.
 
@@ -103,9 +110,9 @@ The LSTM model learns to recognize patterns across frames that indicate flipping
 
 ---
 
-## Quick Start
+### Quick Start
 
-### Environment Setup
+#### Environment Setup
 
 ```bash
 # Clone the repository
@@ -121,7 +128,7 @@ source venv/bin/activate  # Linux/Mac
 pip install -r requirements.txt
 ```
 
-### Project Structure
+#### Project Structure
 
 ```
 Apziva-Project-D/
@@ -145,7 +152,7 @@ Apziva-Project-D/
 └── README.md                 # This file
 ```
 
-### Running the Pipeline
+#### Running the Pipeline
 
 ```bash
 # Step 1: Data Exploration and Leakage Check
@@ -172,9 +179,9 @@ python 03c_lstm_train.py
 
 ---
 
-## Performance Evaluation
+### Performance Evaluation
 
-### Model Comparison
+#### Model Comparison
 
 | Method | Feature Type | Feature Dimension | Accuracy | F1 Score |
 |--------|-------------|-------------------|----------|----------|
@@ -182,7 +189,7 @@ python 03c_lstm_train.py
 | CNN + RF | ResNet-50 (Avg Pool) | 2,048 | 94.81% | 91.30% |
 | **LSTM** | ResNet-50 Sequence | 2,048 × 50 | **98.70%** | **97.96%** |
 
-### Key Findings
+#### Key Findings
 
 1. **LSTM Achieves Best Results**: With proper hyperparameter tuning (learning rate, dropout), LSTM can outperform traditional methods by capturing temporal patterns in video sequences. The flipping motion contains sequential information that HOG and average-pooling CNN cannot capture.
 
@@ -199,9 +206,9 @@ python 03c_lstm_train.py
 
 ---
 
-## Challenges and Solutions
+### Challenges and Solutions
 
-### Challenge 1: Small Dataset Size
+#### Challenge 1: Small Dataset Size
 
 With only 194 video segments, deep learning models easily overfit. Our solutions included:
 - Using transfer learning (ResNet-50 pre-trained on ImageNet)
@@ -209,7 +216,7 @@ With only 194 video segments, deep learning models easily overfit. Our solutions
 - Careful learning rate tuning for LSTM
 - Using HOG + RF as a stable baseline
 
-### Challenge 2: LSTM Training Instability
+#### Challenge 2: LSTM Training Instability
 
 LSTM training on small datasets can be highly unstable—accuracy may fluctuate significantly between runs. Solutions:
 - Adjust learning rate (lower values often work better)
@@ -217,13 +224,13 @@ LSTM training on small datasets can be highly unstable—accuracy may fluctuate 
 - Apply early stopping to capture best validation performance
 - Consider using HOG + RF for more predictable results
 
-### Challenge 3: Class Imbalance
+#### Challenge 3: Class Imbalance
 
 The dataset has slightly more NotFlip (104) than Flip (90) segments. We used:
 - Stratified sampling in train/test split
 - Random Forest's built-in handling of class weights
 
-### Challenge 4: Feature Selection
+#### Challenge 4: Feature Selection
 
 Choosing the right feature representation is crucial. We explored:
 - Hand-crafted features (HOG, Color)
@@ -232,7 +239,7 @@ Choosing the right feature representation is crucial. We explored:
 
 ---
 
-## Future Improvements
+### Future Improvements
 
 1. **Data Augmentation**: Apply augmentation techniques to increase effective dataset size
 
@@ -246,7 +253,7 @@ Choosing the right feature representation is crucial. We explored:
 
 ---
 
-## Tech Stack
+### Tech Stack
 
 - **Data Processing**: numpy, pandas, PIL
 - **Traditional ML**: scikit-learn (Random Forest)
@@ -260,13 +267,13 @@ Choosing the right feature representation is crucial. We explored:
 ---
 
 
-## Contributors
+### Contributors
 
 Thanks to the Apziva team for their support and guidance.
 
 ---
 
-## License
+### License
 
 This project is for internal use only.
 
