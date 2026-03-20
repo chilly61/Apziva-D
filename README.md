@@ -266,8 +266,108 @@ Choosing the right feature representation is crucial. We explored:
 
 ---
 
+## Part 2: Book OCR - Text Extraction
+### Problem Statement
+Extract text from scanned book pages to assist blind users with reading. Compare traditional OCR methods with modern Vision Language Models (VLMs).
 
-### Contributors
+### Dataset
+- **Source**: MLap/Book-Scan-OCR (HuggingFace)
+- **Images**: 156 scanned book pages (India News publication)
+- **Ground Truth**: OCR labels provided in `labels/` folder
+
+### Methods Compared
+
+| Method | Type | Description |
+|--------|------|-------------|
+| EasyOCR | Traditional | Deep learning based OCR with PyTorch |
+| PaddleOCR | Traditional | Baidu's OCR engine |
+| **LLaVA** | VLM | Large Language Model with Vision |
+| **Qwen2-VL** | VLM | Alibaba's multimodal model |
+| **Llama-4-Scout** | VLM | Meta's latest vision model (via Groq) |
+
+### Evaluation Metrics
+
+- **WER (Word Error Rate)**: Word-level accuracy
+- **CER (Character Error Rate)**: Character-level accuracy
+- **Paragraph Analysis**: Structure comparison
+- **Text Density Analysis**: Pattern matching
+
+### Results (Llama-4-Scout via Groq)
+
+| Metric | Value |
+|--------|-------|
+| Average WER | 8.34% |
+| Average CER | 15.21% |
+| Repetition Rate | Very low (~6%) |
+| Sequence Preservation | High |
+
+### Key Observations
+
+1. **VLM advantages**: Better understanding of context, handles complex layouts
+2. **Challenges**: 
+   - Ground truth contains scanning metadata (inflates error rates)
+   - Model adds markdown formatting
+   - Occasional hallucination
+3. **Free tier**: Groq provides free API access with rate limits
+
+---
+
+## Project Structure
+```
+Apziva-Project-D/
+├── Part 2: Book OCR/
+│   ├── images/                   # Book page images (156 files)
+│   │   └── india_news_p0000XX.jpg
+│   ├── labels/                   # Ground truth text files
+│   │   └── india_news_p0000XX.jpg.txt
+│   ├── easyocr_results/          # EasyOCR output
+│   ├── paddleocr_results/        # PaddleOCR output
+│   ├── 04a_easyocr_test.py       # EasyOCR evaluation
+│   ├── 04b_paddleocr_test.py     # PaddleOCR evaluation
+│   ├── test_book_ocr.py          # LLaVA testing (Colab)
+│   ├── book_ocr_api.py           # Groq API integration
+│   ├── book_ocr_results.json     # Evaluation results
+│   └── LLaMA.ipynb               # Notebook for LLM-based OCR
+│
+├── README.md
+└── requirements.txt
+```
+---
+
+## Quick Start
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Traditional OCR
+python 04a_easyocr_test.py
+python 04b_paddleocr_test.py
+
+# VLM-based OCR (requires API keys)
+# See test_book_ocr.py for LLaVA (Colab)
+# See book_ocr_api.py for Groq API
+```
+
+---
+
+## Technologies Used
+- EasyOCR, PaddleOCR (traditional OCR)
+- HuggingFace Transformers (LLaVA, Qwen2-VL)
+- Groq API (Llama-4-Scout)
+- Evaluation: WER, CER, SequenceMatcher
+
+---
+
+## Future Improvements
+   - Data preprocessing to remove scanning metadata
+   - Prompt engineering to reduce markdown output
+   - Experiment with larger VLM models
+
+---
+
+
+
+## Contributors
 
 Thanks to the Apziva team for their support and guidance.
 
