@@ -1,4 +1,4 @@
-# Apziva Project D: Computer Vision & Blind Reading Assistant
+# Apziva Project D: MonReader & Blind Reading Assistant
 
 A comprehensive computer vision project that evolved from video flip detection to a complete blind reading assistance system.
 
