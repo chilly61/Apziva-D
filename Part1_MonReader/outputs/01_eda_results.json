@@ -1,0 +1,21 @@
+{
+  "training": {
+    "flip_segs": 65,
+    "flip_imgs": 1162,
+    "notflip_segs": 52,
+    "notflip_imgs": 1230
+  },
+  "testing": {
+    "flip_segs": 25,
+    "flip_imgs": 105,
+    "notflip_segs": 52,
+    "notflip_imgs": 307
+  },
+  "total_segs": 194,
+  "total_imgs": 2804,
+  "leakage": {
+    "flip": 0,
+    "notflip": 0,
+    "no_leakage": true
+  }
+}

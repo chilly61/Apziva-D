@@ -1,0 +1,41 @@
+{
+  "model_type": "Custom CNN (from scratch) - Segment Classification",
+  "architecture": {
+    "conv_filters": [
+      32,
+      64,
+      128
+    ],
+    "kernel_size": [
+      3,
+      3
+    ],
+    "pool_size": [
+      2,
+      2
+    ],
+    "activation": "leaky_relu",
+    "dense_units": 128,
+    "dropout": 0.3,
+    "l2_reg": 0,
+    "segment_pooling": "mean"
+  },
+  "training_params": {
+    "image_size": [
+      64,
+      64
+    ],
+    "max_frames_per_segment": null,
+    "batch_size": 16,
+    "epochs": 50,
+    "learning_rate": 0.01,
+    "optimizer": "adam",
+    "loss": "binary_crossentropy",
+    "use_augmentation": true
+  },
+  "accuracy": 0.6623376623376623,
+  "f1_score": 0.5,
+  "test_loss": 0.6165388822555542,
+  "test_accuracy": 0.6623376607894897,
+  "training_time_seconds": 205.05194664001465
+}

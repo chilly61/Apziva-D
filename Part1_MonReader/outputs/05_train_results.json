@@ -1,0 +1,9 @@
+{
+  "feature_type": "MobileNetV2 (ImageNet\u9884\u8bad\u7ec3)",
+  "feature_dim": 1280,
+  "model": "RandomForest",
+  "accuracy": 0.8961038961038961,
+  "f1_score": 0.8095238095238095,
+  "n_estimators": 200,
+  "max_depth": 20
+}

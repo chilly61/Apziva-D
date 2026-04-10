@@ -1,0 +1,9 @@
+{
+  "feature_type": "EfficientNetB0 (ImageNet\u9884\u8bad\u7ec3)",
+  "feature_dim": 1280,
+  "model": "RandomForest",
+  "accuracy": 0.987012987012987,
+  "f1_score": 0.9795918367346939,
+  "n_estimators": 200,
+  "max_depth": 20
+}
