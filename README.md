@@ -159,6 +159,7 @@ Apziva-D/
 ├── Part3_TextToSpeech/       # TTS Methods
 │   ├── gtts/              # gTTS
 │   ├── csm/               # CSM
+|   ├── dia.ipynb          # Dia Model
 │   └── samples/           # Audio samples
 │
 ├── BlindReadingAPI/          # Web Application
