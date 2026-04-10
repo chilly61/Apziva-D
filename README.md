@@ -117,6 +117,8 @@ python -c "from gtts import gTTS; tts = gTTS('Hello'); tts.save('output.mp3')"
 ### Online Demo
 🎯 **Live**: https://huggingface.co/spaces/Chilly61/MonReader
 
+![Accuracy Comparison](images/1.png)
+![Accuracy Comparison](images/2.png)
 ### Local Setup
 ```bash
 cd BlindReadingAPI
