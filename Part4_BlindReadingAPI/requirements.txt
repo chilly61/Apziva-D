@@ -1,0 +1,4 @@
+# Dependencies - DON'T specify gradio version! Let Spaces use its default
+groq>=0.4.0
+gTTS>=2.4.0
+numpy>=1.24.0
