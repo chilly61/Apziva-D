@@ -8,7 +8,7 @@ A comprehensive computer vision project that evolved from video flip detection t
 |------|-------------|--------------|
 | Part 1 | MonReader - Video Flip Detection | 98.70% (LSTM) |
 | Part 2 | Book OCR - Text Extraction | 91.66% (Llama-4-Scout) |
-| Part 3 | Text-to-Speech | gTTS (free) |
+| Part 3 | Text-to-Speech | Dia/CSM/gTTS |
 | Part 4 | Blind Reader API | Deployed |
 
 ---
