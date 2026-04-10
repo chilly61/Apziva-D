@@ -196,4 +196,4 @@ MIT
 
 - Apziva for the project opportunity
 - Groq for free API access
-- HuggingFace for 免费Spaces hosting
+- HuggingFace for Spaces hosting
