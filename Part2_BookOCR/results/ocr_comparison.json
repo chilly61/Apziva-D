@@ -1,0 +1,37 @@
+{
+  "project": "Book OCR Comparison",
+  "methods_tested": [
+    {
+      "name": "EasyOCR",
+      "type": "Traditional OCR",
+      "framework": "PyTorch",
+      "average_word_accuracy": "55%",
+      "average_cer": "75%",
+      "note": "Poor performance on scanned book pages"
+    },
+    {
+      "name": "PaddleOCR",
+      "type": "Traditional OCR", 
+      "framework": "PaddlePaddle",
+      "average_word_accuracy": "N/A",
+      "average_cer": ">90% (estimated)",
+      "note": "Very poor quality, nearly unusable"
+    },
+    {
+      "name": "Llama-4-Scout (via Groq)",
+      "type": "VLM",
+      "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+      "average_word_accuracy": "91.66%",
+      "average_wer": "8.34%",
+      "average_cer": "15.21%",
+      "note": "Best performance, selected for production"
+    }
+  ],
+  "comparison_table": {
+    "method": ["EasyOCR", "PaddleOCR", "Llama-4-Scout"],
+    "word_accuracy": ["~55%", "N/A", "91.66%"],
+    "cer": ["~75%", ">90%", "15.21%"],
+    "selected": [false, false, true]
+  },
+  "conclusion": "VLM (Llama-4-Scout) significantly outperforms traditional OCR methods"
+}
