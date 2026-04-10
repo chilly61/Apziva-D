@@ -2,6 +2,8 @@
 
 A comprehensive computer vision project that evolved from video flip detection to a complete blind reading assistance system.
 
+The initial business goal was to detect whether a segment of pictures is flip or not. After careful consideration and communication, I further steped into the true requirements: providing reading assistance for the blind people. So in that case, I deploy a web platform which supports the generation of audio from a single picture. The results will be useful for the further product service.
+
 ## Project Overview
 
 | Part | Description | Best Result |
